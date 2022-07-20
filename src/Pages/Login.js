@@ -1,6 +1,5 @@
 import {useNavigate } from "react-router-dom";
 import { useState } from "react";
-import loginImg from "../Assets/Images/login.jpg"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -24,7 +23,7 @@ export const Login = () => {
         event.preventDefault();
         if (email === "admin@gmail.com" && password === "admin") {
             setIsLogged(true)
-            navigate("/student-listing");
+            navigate("/");
         }
         else
             alert("Wrong email or password")

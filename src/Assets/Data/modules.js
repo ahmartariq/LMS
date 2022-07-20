@@ -35,4 +35,16 @@ export const modules = [
         "startdate" : "15-02-2021",
         "enddate" : "01-16-2021"
     },
+    {
+        "name": "chap6 quiz",
+        "status" :"in-progress",
+        "startdate" : "15-02-2021",
+        "enddate" : "01-16-2021"
+    },
+    {
+        "name": "chap6 observation activity",
+        "status" :"in-progress",
+        "startdate" : "15-02-2021",
+        "enddate" : "01-16-2021"
+    },
 ] 

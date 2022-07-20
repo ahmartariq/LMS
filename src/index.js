@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { ProgramDetails } from "./Pages/ProgramDetails";
-import { StudentListing } from "./Pages/StudentListing";
+// import { StudentListing } from "./Pages/StudentListing";
 import { Login } from "./Pages/Login";
+import { App } from "./Pages/App";
 import { CourseDetails } from "./Pages/CourseDetails";
 import { ModuleDetails } from "./Pages/ModuleDetails";
 import { Questions } from "./Pages/Questions";
@@ -17,8 +18,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="student-listing" element={<StudentListing />} />
+        <Route path="/" element={<App />} />
+        <Route path="/login" element={<Login />} />
+        {/* <Route path="student-listing" element={<StudentListing />} /> */}
         <Route path="program-details/:id" element={<ProgramDetails />} />
         <Route path="course-details/:course" element={<CourseDetails />} />
         <Route path="module-details/:module" element={<ModuleDetails />}>

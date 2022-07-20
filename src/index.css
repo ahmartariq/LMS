@@ -5,7 +5,6 @@
 html,body{
     height: 100%;
     margin: 0;
-    padding: 0;
 }
 
 #root{
@@ -14,7 +13,6 @@ html,body{
 
 .fullHeight{
     height: 100%; 
-    padding: 0 !important;
     margin: 0 !important;
 }
 
@@ -60,3 +58,67 @@ a:hover{
     height: 100px;
     border-radius: 50%;
 }
+
+.tableData{
+    transition: all 0.3s ease-in;
+
+}
+.tableData:hover{
+    color: #3596C1;
+    cursor: pointer;
+    text-decoration: underline;
+
+}
+
+.moduleNav{
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 2px ;
+}
+
+.moduleNav::after{
+    content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  /* padding-bottom: 0; */
+  height: 2px;
+  bottom: 0;
+  top: 28px;
+  left: 0;
+  background-color: white;
+  /* transform-origin: bottom right; */
+  transition: transform 0.25s ease-out;
+}
+
+.moduleNav:hover{
+    opacity: 1;
+    color: white;
+}
+
+.moduleNav:hover::after{
+    transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.navButton{
+    background-color: white;
+    color: #3596C1;
+    border: 2px solid #3596C1;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-right: 12px;
+    transition: 0.3s all ease-in-out;
+}
+
+.navButton:hover{
+    /* border: white; */
+    border: 2px solid white;
+    background-color: #3596C1;
+    color: white;
+}
+
+
