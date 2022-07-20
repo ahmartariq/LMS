@@ -22,10 +22,10 @@ export const Files = () => {
                     <table className="table-auto w-full text-sm text-left text-white mt-12 table-bordered" style={{ border: "1px #3596C1 solid" }}>
                         <thead className="text-xs primary-bg">
                             <tr>
-                                <th scope="col" className="py-3 px-6">Student Id</th>
-                                <th scope="col" className="py-3 px-6">Student Name</th>
-                                <th scope="col" className="py-3 px-6">Email</th>
-                                <th scope="col" className="py-3 px-6">Program name</th>
+                                <th scope="col" className="py-3 px-6">File Name</th>
+                                <th scope="col" className="py-3 px-6">Uploaded By</th>
+                                <th scope="col" className="py-3 px-6">Date</th>
+                                <th scope="col" className="py-3 px-6">Action</th>
                             </tr>
                         </thead>
                         <tbody className="text-black">
@@ -41,8 +41,8 @@ export const Files = () => {
                                         <td className="py-4 px-6">
                                             {file.date}
                                         </td>
-                                        <td className="py-4 px-6 cursor-pointer  hover:text-white">
-                                            <button link={file.link}>Download</button>
+                                        <td className="py-4 px-6 cursor-pointer ">
+                                            <button link={file.link} className="navButton" >Download</button>
                                         </td>
                                     </tr>
                                 ))

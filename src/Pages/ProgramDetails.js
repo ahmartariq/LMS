@@ -1,12 +1,14 @@
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, useLocation } from "react-router-dom"
 import { useState } from "react";
 import { data } from '../Assets/Data/data'
 import { courses } from '../Assets/Data/courses'
+import { Navigation } from "./Navigation";
 
 
 
 export const ProgramDetails = () => {
     const navigate = useNavigate();
+    const location  = useLocation();
 
     const [search, setSearch] = useState("");
     const [filterCourses, setFilterCourses] = useState([]);
@@ -22,31 +24,39 @@ export const ProgramDetails = () => {
         setSearch(event.target.value)
     }
     const filter = () => {
-        setFilterCourses(courses.filter(item => item.courseName.includes(search) || item.status.includes(search) || item.enrolldate.includes(search)))
+        setFilterCourses(courses.filter(item => item.courseName.toLowerCase().includes(search.toLowerCase()) || item.status.toLowerCase().includes(search.toLowerCase()) || item.enrolldate.toLowerCase().includes(search.toLowerCase())))
     }
 
     const visit = (event) => {
         const course = event.target.parentNode.childNodes[0].innerHTML
         navigate(`/course-details/${course}`);
+    }
 
+    const getLocation = () => {
+        return location.pathname
     }
     return (
+        <>
+        <Navigation location={getLocation()}/>
         <div className="min-h-full w-full flex items-center justify-center py-12">
             <div className="w-5/6 flex flex-col items-center justify-center">
-                <h1 className="font-bold text-4xl text-center pb-10 primary-color">Course List</h1>
                 <div className="w-full mb-12 flex justify-center items-center flex-col">
                     <h1 className="font-bold text-2xl text-center pb-10 primary-color">Program Details</h1>
-                    <p className="font-medium text-lg text-center">Student Name: {found.studentName}</p>
-                    <p className="font-medium text-lg text-center">Program Name: {found.program}</p>
-                    <p className="font-medium text-lg text-center">Program code: {found.programCode}</p>
+                    <p className="text-lg text-center"><span className="font-medium"> Student Name:</span> {found.studentName}
+                    <span className="font-medium"> Program Name:</span> {found.program}
+                    <span className="font-medium"> Program Code:</span> {found.programCode}
+                    <span className="font-medium"> Program Number:</span> {found.programNumber}
+                    <span className="font-medium"> Status:</span> {found.status}
+                    </p>
                 </div>
+                <h1 className="font-bold text-4xl text-center pb-10 primary-color">Course List</h1>
                 <input
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                     type="text" value={search} onChange={handleSearch} placeholder="Search Courses" onKeyUp={filter} />
                 <table className="table-auto w-full text-sm text-left text-white mt-12 table-bordered" style={{ border: "1px #3596C1 solid" }}>
                     <thead className="text-xs primary-bg uppercase">
                         <tr>
-                            <th scope="col" className="py-3 px-6">Cource Name</th>
+                            <th scope="col" className="py-3 px-6">Course Name</th>
                             <th scope="col" className="py-3 px-6">Status</th>
                             <th scope="col" className="py-3 px-6">Enrollment Date</th>
                         </tr>
@@ -55,7 +65,7 @@ export const ProgramDetails = () => {
                         {
                             filterCourses.length === 0 && search.length === 0 ?
                                 courses.map((course) => (
-                                    <tr key={course.courseName} onClick={visit}>
+                                    <tr key={course.courseName} onClick={visit} className="tableData">
                                         <th scope="row" className="py-4 px-6">
                                             {course.courseName}
                                         </th>
@@ -69,7 +79,7 @@ export const ProgramDetails = () => {
                                 ))
                                 :
                                 filterCourses.map((course) => (
-                                    <tr className="" key={course.courseName} onClick={visit}>
+                                    <tr key={course.courseName} onClick={visit} className="tableData">
                                         <th scope="row" className="py-4 px-6 ">
                                             {course.courseName}
                                         </th>
@@ -86,5 +96,6 @@ export const ProgramDetails = () => {
                 </table>
             </div>
         </div>
+        </>
     )
 }
