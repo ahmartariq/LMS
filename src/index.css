@@ -11,9 +11,11 @@ html,body{
     height: 100%;
 }
 
+
 .fullHeight{
     height: 100%; 
     margin: 0 !important;
+    padding: 0 !important;
 }
 
 .col-13{
@@ -120,5 +122,3 @@ a:hover{
     background-color: #3596C1;
     color: white;
 }
-
-

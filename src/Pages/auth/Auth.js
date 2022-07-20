@@ -1,40 +1,26 @@
-// import {useState ,  createContext , useContext} from "react"
-// import { useNavigate } from "react-router-dom"
+import { useState , createContext , useContext } from "react";
 
+const AuthContext = createContext(null)
 
-// const AuthContext = createContext(null)
+export const AuthProvider = ({ children}) => {
+    const [user , setUser] = useState(null)
 
-// export const AuthProvider = ({ children }) => {
-//     const [user, setUser] = useState(null)
-//     const [password, setPassword] = useState(null)
-//     const navigate = useNavigate();
+    const login = (user) => {
+        setUser(user)
+        console.log(user);
+    }
 
-//     const login = () => {
-//         setUser(user)
-//         setPassword(password)
+    const logout = () => {
+        setUser(null)
+        console.log(user);
+    }
 
-//         if (user === "admin@gmail.com" && password === "admin") {
-//             navigate("/");
-//         }
-//         else{
-//             // navigate('/course-details')
-//             // alert("Wrong email or password")
-//         }
-//     }
+    return (<AuthContext.Provider value={{user, login, logout}}>
+        {children}
+    </AuthContext.Provider>
+    )
+}
 
-//     const logout = () => {
-//         setUser(null)
-//         setPassword(null)
-//     }
-
-
-//     return <AuthContext.Provider value={{user, password ,login , logout}}>
-//         {children}
-//     </AuthContext.Provider>
-// }
-
-
-
-// export const useAuth = () => {
-//     return useContext(AuthContext)
-// }
+export const useAuth = () => {
+    return useContext(AuthContext)
+}
