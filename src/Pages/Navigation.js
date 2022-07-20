@@ -3,10 +3,16 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from './Auth/Auth';
 
 export const Navigation = (props) => {
     const navigate = useNavigate()
+    const auth = useAuth()
 
+    const handleLogout = () => {
+        auth.logout()
+        navigate('/login')
+    }
     return (
         <Navbar className="primary-bg" expand="lg">
             <Container fluid>
@@ -23,7 +29,11 @@ export const Navigation = (props) => {
                             : null}
                         <Nav.Link className="text-white" href="/">Home</Nav.Link>
                     </Nav>
-                    <button className="navButton" onClick={()=> navigate("/login")}>Loutout</button>
+                    {
+                        auth.user && (
+                            <button className="navButton" onClick={handleLogout}>Loutout</button>
+                        )}
+                    
                 </Navbar.Collapse>
             </Container>
         </Navbar>

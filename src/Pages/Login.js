@@ -1,17 +1,20 @@
-import {useNavigate } from "react-router-dom";
+import {useNavigate , useLocation} from "react-router-dom";
 import { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useAuth } from "./Auth/Auth";
 
 
 export const Login = () => {
     const navigate = useNavigate();
+    const location = useLocation()
+    const redirectPath  = location.state?.path  || '/' ;
 
-    const [isLogged, setIsLogged] = useState(false)
-    const [email, setEmail] = useState("");
+    const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
+    const auth = useAuth()
 
-    const handleEmail = event => {
-        setEmail(event.target.value);
+    const handleUser = event => {
+        setUser(event.target.value);
     }
 
     const handlePassword = event => {
@@ -21,9 +24,10 @@ export const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        if (email === "admin@gmail.com" && password === "admin") {
-            setIsLogged(true)
-            navigate("/");
+        if (user === "admin@gmail.com" && password === "admin") {
+            auth.login(user)
+            console.log(user);
+            navigate(redirectPath , {replace : true} );
         }
         else
             alert("Wrong email or password")
@@ -42,7 +46,6 @@ export const Login = () => {
                         Sign in to your account
                     </h2>
                 </div>
-                <form className="mt-8 space-y-6" method="POST" onSubmit={handleSubmit}>
                     <input type="hidden" name="remember" defaultValue="true" />
                     <div className="rounded-md shadow-sm -space-y-px">
                         <div>
@@ -53,8 +56,8 @@ export const Login = () => {
                                 id="email-address"
                                 name="email"
                                 type="email"
-                                value={email}
-                                onChange={handleEmail}
+                                value={user}
+                                onChange={handleUser}
                                 autoComplete="email"
                                 required
                                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
@@ -82,11 +85,11 @@ export const Login = () => {
                         <button
                             type="submit"
                             className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white primary-button"
+                            onClick={handleSubmit}
                         >
                             Sign in
                         </button>
                     </div>
-                </form>
             </div>
         </div>
         </div>

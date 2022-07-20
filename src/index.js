@@ -11,14 +11,16 @@ import { Questions } from "./Pages/Questions";
 import { Feedback } from "./Pages/Feedback";
 import { Files } from "./Pages/Files";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { AuthProvider } from "./Pages/Auth/Auth";
+import { RequireAuth } from "./Pages/Auth/RequireAuth";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  <AuthProvider>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<RequireAuth><App /> </RequireAuth>} />
         <Route path="/login" element={<Login />} />
         {/* <Route path="student-listing" element={<StudentListing />} /> */}
         <Route path="program-details/:id" element={<ProgramDetails />} />
@@ -30,5 +32,5 @@ root.render(
         </Route>
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  </AuthProvider>
 );
