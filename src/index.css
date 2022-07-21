@@ -55,11 +55,6 @@ a:hover{
     opacity: 0.8;
 }
 
-.circle{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-}
 
 .tableData{
     transition: all 0.3s ease-in;
@@ -121,4 +116,36 @@ a:hover{
     border: 2px solid white;
     background-color: #3596C1;
     color: white;
+}
+
+.question{
+    width: 85%;
+}
+
+.circle{
+    background-color: white;
+    color: #3596C1;
+    width: 10%;
+    height: 15%;
+    padding: 35px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.circle p , .circle-feedback p {
+    margin : 0
+}
+
+.circle-feedback{
+    background-color: white;
+    color: #3596C1;
+    width: 13%;
+    height: 15%;
+    padding: 35px 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
 }

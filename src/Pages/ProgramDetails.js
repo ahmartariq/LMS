@@ -41,15 +41,15 @@ export const ProgramDetails = () => {
         <div className="min-h-full w-full flex items-center justify-center py-12">
             <div className="w-5/6 flex flex-col items-center justify-center">
                 <div className="w-full mb-12 flex justify-center items-center flex-col">
-                    <h1 className="font-bold text-2xl text-center pb-10 primary-color">Program Details</h1>
-                    <p className="text-lg text-center"><span className="font-medium"> Student Name:</span> {found.studentName}
-                    <span className="font-medium"> Program Name:</span> {found.program}
-                    <span className="font-medium"> Program Code:</span> {found.programCode}
-                    <span className="font-medium"> Program Number:</span> {found.programNumber}
+                    <h1 className="font-bold text-4xl text-center pb-10 primary-color">Program Details</h1>
+                    <p className="text-lg text-center"><span className="font-medium"> Student Name:</span> {found.studentName} |
+                    <span className="font-medium"> Program Name:</span> {found.program} |
+                    <span className="font-medium"> Program Code:</span> {found.programCode} |
+                    <span className="font-medium"> Program Number:</span> {found.programNumber} |
                     <span className="font-medium"> Status:</span> {found.status}
                     </p>
                 </div>
-                <h1 className="font-bold text-4xl text-center pb-10 primary-color">Course List</h1>
+                <h1 className="font-bold text-3xl pb-10 text-left align-self-start primary-color">Course List</h1>
                 <input
                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                     type="text" value={search} onChange={handleSearch} placeholder="Search Courses" onKeyUp={filter} />

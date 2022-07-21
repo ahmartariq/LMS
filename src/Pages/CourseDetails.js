@@ -41,14 +41,14 @@ export const CourseDetails = () => {
         <div className="min-h-full w-full flex items-center justify-center py-12">
         <div className="w-5/6 flex flex-col items-center justify-center">
             <div className="w-full mb-12 flex justify-center items-center flex-col">
-            <h1 className="font-bold text-2xl text-center pb-10 primary-color">Course Details</h1>
-            <p className="text-lg text-center"><span className="font-medium ">Course Name:</span> {found.courseName}
-            <span className="font-medium "> Course Status:</span> {found.status}
-            <span className="font-medium"> Enrollment Date:</span> {found.enrolldate}
-            <span className="font-medium"> completion/Cancellation Date:</span> {found.enddate}
+            <h1 className="font-bold text-4xl text-center pb-10 primary-color">Course Details</h1>
+            <p className="text-lg text-center"><span className="font-medium ">Course Name:</span> {found.courseName} |
+            <span className="font-medium "> Course Status:</span> {found.status} | 
+            <span className="font-medium"> Enrollment Date:</span> {found.enrolldate} |
+            <span className="font-medium"> completion/Cancellation Date:</span> {found.enddate} |
             <span className="font-medium"> Tutor Name:</span> {found.tutor}</p>
             </div>
-            <h1 className="font-bold text-4xl text-center pb-10 primary-color">Module List</h1>
+            <h1 className="font-bold text-3xl align-self-start pb-10 primary-color">Module List</h1>
             <input
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 type="text" value={search} onChange={handleSearch} placeholder="Search Modules" onKeyUp={filter}/>

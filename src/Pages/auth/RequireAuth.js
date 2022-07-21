@@ -3,10 +3,11 @@ import { useAuth } from "./Auth";
 
 export const RequireAuth = ({ children }) => {
     const auth = useAuth();
-    const location = useLocation()
+    const isUser = sessionStorage.getItem("User")
 
-    if(!auth.user){
-        return <Navigate to='/login' state={{path: location.pathname}}  />
+    if(!isUser ){
+        console.log(isUser);
+        return <Navigate to='/login'  />
     }
 
     return children

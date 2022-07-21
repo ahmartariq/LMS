@@ -20,15 +20,15 @@ root.render(
   <AuthProvider>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<RequireAuth><App /> </RequireAuth>} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<RequireAuth> <App /> </RequireAuth>} />
+        <Route path="login" element={<Login />} />
         {/* <Route path="student-listing" element={<StudentListing />} /> */}
-        <Route path="program-details/:id" element={<ProgramDetails />} />
-        <Route path="course-details/:course" element={<CourseDetails />} />
-        <Route path="module-details/:module" element={<ModuleDetails />}>
-          <Route index path="questions" element={<Questions />} />
-          <Route path="feedback" element={<Feedback />} />
-          <Route path="files" element={<Files />} />
+        <Route path="program-details/:id" element={<RequireAuth> <ProgramDetails /> </RequireAuth> }/>
+        <Route path="course-details/:course" element={<RequireAuth> <CourseDetails /> </RequireAuth> }/>
+        <Route path="module-details/:module" element={<RequireAuth> <ModuleDetails /> </RequireAuth>}>
+          <Route index path="questions" element={<RequireAuth>  <Questions /> </RequireAuth>} />
+          <Route path="feedback" element={<RequireAuth> <Feedback /> </RequireAuth>} />
+          <Route path="files" element={<RequireAuth> <Files /> </RequireAuth>} />
         </Route>
       </Routes>
     </BrowserRouter>

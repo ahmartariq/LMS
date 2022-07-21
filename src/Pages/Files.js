@@ -11,14 +11,13 @@ export const Files = () => {
         if (module === mod.name) return mod;
     });
 
-    if ((found.name.toLowerCase().includes("observation activity") ||
-     found.name.toLowerCase().includes("workplace project") || found.name.toLowerCase().includes("supplementary") || 
-     found.name.toLowerCase().includes("timesheet") || found.name.toLowerCase().includes("additional evidence")) && 
+    if ((found.name.toLowerCase().includes("observation activity") || found.name.toLowerCase().includes("observation-activity") ||
+     found.name.toLowerCase().includes("workplace project") ||found.name.toLowerCase().includes("workplace-project") ||  found.name.toLowerCase().includes("supplementary") || 
+     found.name.toLowerCase().includes("timesheet") || found.name.toLowerCase().includes("additional evidence") || found.name.toLowerCase().includes("additional-evidence")) && 
      found.status.toLocaleLowerCase() !== "waiting"){
         return (
             <div className="min-h-full w-full flex items-center justify-center py-8">
                 <div className="w-5/6 flex flex-col items-center justify-center">
-                    <h1 className="font-bold text-4xl text-center pb-10 primary-color">Files Tab</h1>
                     <table className="table-auto w-full text-sm text-left text-white mt-12 table-bordered" style={{ border: "1px #3596C1 solid" }}>
                         <thead className="text-xs primary-bg">
                             <tr>
