@@ -29,11 +29,11 @@ export const ModuleDetails = () => {
         <>
         <Navigation location={getLocation()}/>
         <div>
-            <h1 className="font-bold text-2xl text-center pb-10 primary-color mt-12">Program Details</h1>
+            <h1 className="font-bold text-4xl text-center pb-10 primary-color mt-12">Module Details</h1>
             <p className="text-lg text-center mb-5">
-                    <span className="font-medium"> Module Name:</span> {found.name}
-                    <span className="font-medium"> Status Code:</span> {found.status}
-                    <span className="font-medium"> Start Date:</span> {found.startdate}
+                    <span className="font-medium"> Module Name:</span> {found.name} |
+                    <span className="font-medium"> Status:</span> {found.status} |
+                    <span className="font-medium"> Start Date:</span> {found.startdate} |
                     <span className="font-medium"> End Date:</span> {found.enddate}
                     </p>
 

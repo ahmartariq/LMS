@@ -1,13 +1,11 @@
-import {useNavigate , useLocation} from "react-router-dom";
-import { useState } from "react";
+import {useNavigate} from "react-router-dom";
+import { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuth } from "./Auth/Auth";
 
 
 export const Login = () => {
     const navigate = useNavigate();
-    const location = useLocation()
-    const redirectPath  = location.state?.path  || '/' ;
 
     const [user, setUser] = useState("");
     const [password, setPassword] = useState("");
@@ -21,13 +19,11 @@ export const Login = () => {
         setPassword(event.target.value);
     }
 
-
     const handleSubmit = (event) => {
         event.preventDefault();
         if (user === "admin@gmail.com" && password === "admin") {
             auth.login(user)
-            console.log(user);
-            navigate(redirectPath , {replace : true} );
+            navigate('/' , {replace : true} );
         }
         else
             alert("Wrong email or password")

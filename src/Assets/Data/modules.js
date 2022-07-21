@@ -36,15 +36,15 @@ export const modules = [
         "enddate" : "01-16-2021"
     },
     {
-        "name": "chap6 quiz",
+        "name": "chap6-quiz",
         "status" :"in-progress",
-        "startdate" : "15-02-2021",
-        "enddate" : "01-16-2021"
+        "startdate" : "5-03-2021",
+        "enddate" : "01-9-2021"
     },
     {
-        "name": "chap6 observation activity",
+        "name": "chap6-observation-activity",
         "status" :"in-progress",
-        "startdate" : "15-02-2021",
-        "enddate" : "01-16-2021"
+        "startdate" : "1-05-2021",
+        "enddate" : "19-9-2021"
     },
 ] 
