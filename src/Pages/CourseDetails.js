@@ -23,7 +23,7 @@ export const CourseDetails = () => {
         setSearch(event.target.value)
    }
     const filter = () => {
-        setFilterModules(modules.filter(item =>  item.name.includes(search) || item.status.includes(search) || item.startdate.includes(search) || item.enddate.includes(search) )) 
+        setFilterModules(modules.filter(item =>  item.name.toLowerCase().includes(search.toLowerCase()) || item.status.toLowerCase().includes(search.toLowerCase()) || item.startdate.includes(search) || item.enddate.includes(search) )) 
     }    
 
     const visit = (event) => {

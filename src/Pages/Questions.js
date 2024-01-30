@@ -29,27 +29,16 @@ export const Questions = () => {
         <h2 className="font-bold text-2xl primary-color align-self-end mt-12">
           Total Score: {total[0]}/{total[1]}{" "}
         </h2>
-
-        {/* <table className="table-auto w-full text-sm text-left text-white table-bordered" style={{ border: "1px #3596C1 solid" }}>
-          <thead className="text-xs primary-bg uppercase">
-            <tr>
-              <th scope="col" className="py-3 px-6">Questions</th>
-              <th scope="col" className="py-3 px-6">Answers</th>
-              <th scope="col" className="py-3 px-6">Obtained Marks</th>
-              <th scope="col" className="py-3 px-6">Total Marks</th>
-            </tr>
-          </thead>
-          <tbody className="text-black"> */}
         {questionsData.map((question, count) => (
           <>
             <div
-              className="-12 w-full md:w-4/5 flex flex-row"
+              className="-12 w-full flex flex-row"
               style={{ columnGap: "10px" }}
             >
               <span className="font-bold">{++count}.</span>
               <p>{question.question}</p>
             </div>
-            <div className=" mb-12 w-full md:w-4/5  rounded-md primary-bg px-6 py-9 text-white flex flex-row gap-4 items-center shadow-lg">
+            <div className=" mb-12 w-full rounded-md primary-bg px-6 py-9 text-white flex flex-row gap-4 items-center shadow-lg">
               <div className="question">
                 <textarea
                   name="answer"

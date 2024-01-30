@@ -56,7 +56,6 @@ export const Files = () => {
         return(
 
             <div className="container flex flex-col justify-center items-center mt-8">
-        <h1 className="font-bold text-4xl primary-color">Files Tab</h1>
         <div className="w-full md:w-1/2 mt-12 rounded-md primary-bg px-6 py-9 text-white flex flex-row gap-5 justify-center items-center shadow-lg">
           <h1 className="font-bold text-lg">You can not download any files</h1>
         </div>
